@@ -56,17 +56,35 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main nixos configuration file <
+          ./nixos/hardware-configuration.nix
+          ./nixos/audio.nix
+          ./nixos/boot.nix
+          ./nixos/display.nix
+          ./nixos/docker.nix
+          ./nixos/gpu.nix
+          ./nixos/locale.nix
+          ./nixos/networking.nix
+          ./nixos/steam.nix
+          ./nixos/systemd.nix
+          ./nixos/users.nix
+          ./nixos/virtualization.nix
           ./nixos/configuration.nix
         ];
       };
       nixos-arm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs; encryptedDisk=false;};
         modules = [
-          # > Our main nixos configuration file 
-          ./nixos/locale.nix
-          ./nixos/configuration.nix
           ./nixos/hardware-configuration.nix
+          ./nixos/audio.nix
+          ./nixos/boot.nix
+          ./nixos/display.nix
+          ./nixos/docker.nix
+          ./nixos/locale.nix
+          ./nixos/networking.nix
+          ./nixos/steam.nix
+          ./nixos/systemd.nix
+          ./nixos/users.nix
+          ./nixos/configuration.nix
         ];
       };
     };
