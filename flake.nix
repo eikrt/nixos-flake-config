@@ -64,6 +64,7 @@
         specialArgs = {inherit inputs outputs; encryptedDisk=false;};
         modules = [
           # > Our main nixos configuration file 
+          ./nixos/locale.nix
           ./nixos/configuration.nix
           ./nixos/hardware-configuration.nix
         ];
