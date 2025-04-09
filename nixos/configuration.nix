@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, encryptedDisk, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
   ];
   nixpkgs = {
@@ -26,21 +26,7 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  environment.systemPackages = with pkgs; [
-    emacs
-    eduvpn-client
-    rustc
-    cargo
-    gcc
-    gnumake
-    glibc
-    rustfmt
-    openssl
-    pkg-config
-    godot_4
-    libreoffice-qt
-    krita
-  ];
+  environment.systemPackages = (import ./packages/work.nix) { inherit pkgs; };
   networking.firewall.allowedTCPPorts = [];
   system.stateVersion = "23.05";
 }

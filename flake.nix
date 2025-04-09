@@ -58,7 +58,7 @@
         modules = [
           ./nixos/hardware-configuration.nix
           ./nixos/audio.nix
-          ./nixos/boot.nix
+          ./nixos/boot-virtual-work.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/gpu.nix
@@ -72,7 +72,7 @@
         ];
       };
       nixos-arm = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs; encryptedDisk=false;};
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configuration.nix
           ./nixos/audio.nix
@@ -81,7 +81,6 @@
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
-          ./nixos/steam.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/configuration.nix
