@@ -26,7 +26,7 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  environment.systemPackages = (import ./packages/work.nix) { inherit pkgs; };
+  environment.systemPackages = (import ./packages/code.nix) { inherit pkgs; } ++ (import ./packages/game.nix) { inherit pkgs; } ++ (import ./packages/other.nix) { inherit pkgs; };
   networking.firewall.allowedTCPPorts = [];
   system.stateVersion = "23.05";
 }
