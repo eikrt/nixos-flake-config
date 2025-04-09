@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, encryptedDisk, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -10,18 +10,12 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
   ];
 
   # Option to allow user to specify whether the disk is encrypted
-  encryptedDisk = config.boot.encryptedDisk ? config.boot.encryptedDisk : false;
-
   # If using AMD64, apply additional settings for NVIDIA drivers
-  nvidiaPackage = if lib.system.isAMD64 then config.boot.kernelPackages.nvidiaPackages.legacy_470 else null;
-
-  hardware.nvidia.package = nvidiaPackage;
+  hardware.nvidia.package = null;
 
   time.timeZone = "Europe/Helsinki";
 
@@ -43,18 +37,18 @@
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
 
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  #boot.initrd.secrets = {
+  #  "/crypto_keyfile.bin" = null;
+  #};
 
   boot.loader.grub.enableCryptodisk = encryptedDisk;
 
-  boot.initrd.luks.devices = lib.optionalAttrs(encryptedDisk, {
-    "luks-2838b664-58a4-47df-b5a6-b7b00b19f03e".keyFile = "/crypto_keyfile.bin";
-  });
+ # boot.initrd.luks.devices = lib.optionalAttrs((config.boot.encryptedDisk) {
+ #   "luks-2838b664-58a4-47df-b5a6-b7b00b19f03e".keyFile = "/crypto_keyfile.bin";
+ # });
 
   # Import devices from hardware-luks-devices
-  boot.initrd.devices = config.hardware-luks-devices;
+  #boot.initrd.devices = config.hardware-luks-devices;
 
   networking.networkmanager.enable = true;
 
@@ -105,10 +99,10 @@
     jack.enable = true;
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.guest.enable = true;
+  #virtualisation.virtualbox.guest.dragAndDrop = true;
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
@@ -135,12 +129,12 @@
   };
 
   networking.firewall.checkReversePath = "loose";
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+#  programs.steam = {
+#    enable = true;
+#    remotePlay.openFirewall = true;
+#    dedicatedServer.openFirewall = true;
+#    localNetworkGameTransfers.openFirewall = true;
+#  };
 
 environment.systemPackages = with pkgs; [
   emacs
