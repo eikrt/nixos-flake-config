@@ -23,7 +23,8 @@
   };
 
   environment.systemPackages = (import ../packages/code.nix) { inherit pkgs; }
-    ++ (import ../packages/other.nix) { inherit pkgs; };
-  networking.firewall.allowedTCPPorts = [ 2377 ];
+    ++ (import ../packages/utils.nix) { inherit pkgs; };
+  networking.firewall.allowedTCPPorts = [ 22 2377 2376 7946 ];
+  networking.firewall.allowedUDPPorts = [ 4789 7946 ];
   system.stateVersion = "23.05";
 }

@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "NIX CONFIG EINO KORTE";
 
   inputs = {
     # Nixpkgs
@@ -71,12 +71,12 @@
           ./nixos/configuration.nix
         ];
       };
-      nixos-arm = nixpkgs.lib.nixosSystem {
+      nixos-qemu-arm = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/hardware-configuration.nix
+          ./nixos/hardware-configuration-qemu-arm.nix
           ./nixos/audio.nix
-          ./nixos/boot.nix
+          ./nixos/boot-virtual-work.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
@@ -100,7 +100,7 @@
           ./home-manager/home.nix
         ];
       };
-      "eino@nixos-arm" = home-manager.lib.homeManagerConfiguration {
+      "eino@nixos-qemu-arm" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
