@@ -83,7 +83,7 @@
           ./nixos/networking.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
-          ./nixos/configuration.nix
+          ./nixos/stations/configuration-work.nix
         ];
       };
     };
@@ -105,7 +105,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home-manager/home.nix
+          ./home-manager/home-work.nix
         ];
       };
     };
