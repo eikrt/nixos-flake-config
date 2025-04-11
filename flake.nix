@@ -74,7 +74,7 @@
           ./nixos/configurations/configuration-home.nix
         ];
       };
-      nixos-qemu-arm = nixpkgs.lib.nixossystem {
+      nixos-qemu-arm = nixpkgs.lib.nixosSystem {
         specialargs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
@@ -90,7 +90,7 @@
           ./nixos/configurations/configuration-work.nix
         ];
       };
-      nixos-lenovo-laptop = nixpkgs.lib.nixossystem {
+      nixos-lenovo-laptop = nixpkgs.lib.nixosSystem {
         specialargs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
