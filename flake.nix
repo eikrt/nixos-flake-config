@@ -58,32 +58,52 @@
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-home-pc.nix
           ./nixos/audio.nix
-          ./nixos/boot-home-pc.nix
+          ./nixos/boot/boot-home-pc.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/gpu.nix
+          ./nixos/hardware.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
           ./nixos/steam.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/virtualization.nix
-          ./nixos/stations/configuration-home.nix
+          ./nixos/wireguard-client.nix
+          ./nixos/wireguard-server.nix
+          ./nixos/configurations/configuration-home.nix
         ];
       };
-      nixos-qemu-arm = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+      nixos-qemu-arm = nixpkgs.lib.nixossystem {
+        specialargs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
           ./nixos/audio.nix
-          ./nixos/boot-virtual-work.nix
+          ./nixos/boot/boot-virtual-work.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
-          ./nixos/stations/configuration-work.nix
+          ./nixos/wireguard-client.nix
+          ./nixos/configurations/configuration-work.nix
+        ];
+      };
+      nixos-lenovo-laptop = nixpkgs.lib.nixossystem {
+        specialargs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
+          ./nixos/audio.nix
+          ./nixos/boot/boot-lenovo-laptop.nix
+          ./nixos/display.nix
+          ./nixos/docker.nix
+          ./nixos/locale.nix
+          ./nixos/networking.nix
+          ./nixos/systemd.nix
+          ./nixos/users.nix
+          ./nixos/wireguard-client.nix
+          ./nixos/configurations/configuration-work.nix
         ];
       };
     };
