@@ -93,7 +93,7 @@
       nixos-lenovo-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
+          ./nixos/hardware-configurations/hardware-configuration-lenovo-laptop.nix
           ./nixos/audio.nix
           ./nixos/boot/boot-lenovo-laptop.nix
           ./nixos/display.nix
