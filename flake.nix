@@ -75,7 +75,7 @@
         ];
       };
       nixos-qemu-arm = nixpkgs.lib.nixosSystem {
-        specialargs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
           ./nixos/audio.nix
@@ -91,7 +91,7 @@
         ];
       };
       nixos-lenovo-laptop = nixpkgs.lib.nixosSystem {
-        specialargs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
           ./nixos/audio.nix
