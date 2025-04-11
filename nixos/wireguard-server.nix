@@ -43,10 +43,6 @@
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
           allowedIPs = [ "10.100.0.2/32" ];
         }
-        { # Eino Korte 
-          publicKey = "LUkhJbpfmFtQpWGN6veYqXUw8r2t0qCtra67FEpEDXo=";
-          allowedIPs = [ "10.100.0.3/32" ];
-        }
       ];
     };
   };
