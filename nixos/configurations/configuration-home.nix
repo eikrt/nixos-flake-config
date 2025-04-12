@@ -25,7 +25,8 @@
   environment.systemPackages = (import ../pkgs/code.nix) { inherit pkgs; }
     ++ (import ../pkgs/utils.nix) { inherit pkgs; }
     ++ (import ../pkgs/game.nix) { inherit pkgs; }
-    ++ (import ../pkgs/nix.nix) { inherit pkgs; };
+    ++ (import ../pkgs/nix.nix) { inherit pkgs; }
+    ++ (import ../pkgs/audio.nix) { inherit pkgs; };
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
   system.stateVersion = "23.05";
