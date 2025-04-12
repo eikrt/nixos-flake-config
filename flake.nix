@@ -63,8 +63,10 @@
           ./nixos/docker.nix
           ./nixos/gpu.nix
           ./nixos/hardware.nix
+          ./nixos/jellyfin.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
+          ./nixos/sleep-disable.nix
           ./nixos/steam.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
@@ -99,6 +101,7 @@
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
+          ./nixos/steam.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/wireguard-client.nix
