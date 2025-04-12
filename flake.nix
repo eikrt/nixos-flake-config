@@ -108,6 +108,21 @@
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
       };
+      nixos-asus-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/hardware-configurations/hardware-configuration-asus-laptop.nix
+          ./nixos/audio.nix
+          ./nixos/boot/boot-asus-laptop.nix
+          ./nixos/display.nix
+          ./nixos/locale.nix
+          ./nixos/networking.nix
+          ./nixos/systemd.nix
+          ./nixos/users.nix
+          ./nixos/wireguard-client.nix
+          ./nixos/configurations/configuration-lenovo-laptop.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -115,6 +130,14 @@
     homeConfigurations = {
       # FIXME replace with your username@hostname
       "eino@nixos-home-pc" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+        ];
+      };
+      "eino@nixos-asus-laptop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
