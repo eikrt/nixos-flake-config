@@ -81,6 +81,7 @@
           ./nixos/hardware-configurations/hardware-configuration-qemu-arm.nix
           ./nixos/audio.nix
           ./nixos/boot/boot-virtual-work.nix
+          ./nixos/hardware.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
@@ -98,6 +99,7 @@
           ./nixos/audio.nix
           ./nixos/boot/boot-lenovo-laptop.nix
           ./nixos/display.nix
+          ./nixos/hardware.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
@@ -115,6 +117,7 @@
           ./nixos/audio.nix
           ./nixos/boot/boot-asus-laptop.nix
           ./nixos/display.nix
+          ./nixos/hardware.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
           ./nixos/systemd.nix
