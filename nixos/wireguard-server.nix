@@ -3,6 +3,7 @@
   networking.nat.enable = true;
   networking.nat.externalInterface = "eno1";
   networking.nat.internalInterfaces = [ "wg0" ];
+  networking.firewall.trustedInterfaces = [ "wg0" ]; # or whatever your interface is
   networking.firewall = {
     allowedUDPPorts = [ 51820 ];
   };
@@ -41,7 +42,7 @@
           # Public key of the peer (not a file path).
           publicKey = "LUkhJbpfmFtQpWGN6veYqXUw8r2t0qCtra67FEpEDXo=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = [ "10.100.0.2/32" "10.100.0.1/32" ];
+          allowedIPs = [ "10.100.0.3/32" "10.100.0.2/32" "10.100.0.1/32" ];
         }
       ];
     };
