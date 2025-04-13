@@ -71,7 +71,7 @@
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/virtualization.nix
-          ./nixos/wireguard-server.nix
+          ./nixos/tailscale-server.nix
           ./nixos/configurations/configuration-home.nix
         ];
       };
@@ -106,7 +106,6 @@
           ./nixos/steam.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
-          ./nixos/wireguard-client.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
       };
@@ -122,7 +121,6 @@
           ./nixos/networking.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
-          ./nixos/wireguard-client.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
       };
