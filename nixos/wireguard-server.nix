@@ -41,7 +41,7 @@
           # Public key of the peer (not a file path).
           publicKey = "LUkhJbpfmFtQpWGN6veYqXUw8r2t0qCtra67FEpEDXo=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = [ "10.100.0.2/32" ];
+          allowedIPs = [ "10.100.0.2/32" "10.100.0.1/32" ];
         }
       ];
     };

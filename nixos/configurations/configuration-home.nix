@@ -27,7 +27,7 @@
     ++ (import ../pkgs/game.nix) { inherit pkgs; }
     ++ (import ../pkgs/nix.nix) { inherit pkgs; }
     ++ (import ../pkgs/audio.nix) { inherit pkgs; };
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedUDPPorts = [ 3389 ];
   system.stateVersion = "23.05";
 }
