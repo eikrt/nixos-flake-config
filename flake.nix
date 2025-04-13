@@ -121,6 +121,7 @@
           ./nixos/networking.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
+          ./nixos/tailscale-server.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
       };
