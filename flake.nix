@@ -71,7 +71,7 @@
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/virtualization.nix
-          ./nixos/tailscale-server.nix
+          ./nixos/tailscale.nix
           ./nixos/configurations/configuration-home.nix
         ];
       };
@@ -121,7 +121,7 @@
           ./nixos/networking.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
-          ./nixos/tailscale-server.nix
+          ./nixos/tailscale.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
       };
@@ -135,7 +135,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
           ./home-manager/home.nix
         ];
       };
@@ -143,7 +142,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
           ./home-manager/home.nix
         ];
       };
@@ -151,7 +149,6 @@
         pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
           ./home-manager/home-work.nix
         ];
       };
