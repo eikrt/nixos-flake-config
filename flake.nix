@@ -58,16 +58,19 @@
         modules = [
           ./nixos/hardware-configurations/hardware-configuration-home-pc.nix
           ./nixos/audio.nix
+          ./nixos/backup.nix
           ./nixos/boot/boot-home-pc.nix
           ./nixos/display.nix
           ./nixos/docker.nix
           ./nixos/gpu.nix
+          ./nixos/grafana.nix
           ./nixos/hardware.nix
           ./nixos/jellyfin.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
           ./nixos/sleep-disable.nix
           ./nixos/steam.nix
+          ./nixos/syncthing.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/virtualization.nix
@@ -86,6 +89,7 @@
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
+          ./nixos/syncthing.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/wireguard-client.nix
@@ -104,6 +108,7 @@
           ./nixos/locale.nix
           ./nixos/networking.nix
           ./nixos/steam.nix
+          ./nixos/syncthing.nix
           ./nixos/systemd.nix
           ./nixos/users.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix

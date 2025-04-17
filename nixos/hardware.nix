@@ -1,4 +1,6 @@
 {
-
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
 }
