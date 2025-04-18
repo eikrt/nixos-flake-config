@@ -108,9 +108,11 @@
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
+          ./nixos/optimus.nix
           ./nixos/steam.nix
           ./nixos/syncthing.nix
           ./nixos/systemd.nix
+          ./nixos/tailscale.nix
           ./nixos/users.nix
           ./nixos/configurations/configuration-lenovo-laptop.nix
         ];
