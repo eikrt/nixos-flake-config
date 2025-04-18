@@ -64,6 +64,7 @@
           ./nixos/docker.nix
           ./nixos/gpu.nix
           ./nixos/grafana.nix
+          ./nixos/prometheus.nix
           ./nixos/hardware.nix
           ./nixos/jellyfin.nix
           ./nixos/locale.nix
