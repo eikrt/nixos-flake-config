@@ -103,7 +103,7 @@
           ./nixos/hardware-configurations/hardware-configuration-lenovo-laptop.nix
           ./nixos/audio.nix
           ./nixos/boot/boot-lenovo-laptop.nix
-          ./nixos/display.nix
+          ./nixos/ice.nix
           ./nixos/hardware.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
