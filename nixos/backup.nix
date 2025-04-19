@@ -8,6 +8,7 @@ let
     rsync -av /mnt/HDD/Games/   /var/lib/syncthing/Games/
     rsync -av /mnt/HDD/Notes/   /var/lib/syncthing/Notes/
     rsync -av /mnt/HDD/Movies/  /var/lib/syncthing/Movies/
+    rsync -av /mnt/HDD/Books/  /var/lib/syncthing/Books/
   '';
 in
 {
