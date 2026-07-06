@@ -1,2 +1,2 @@
 { pkgs }:
-(with pkgs; [ rustc cargo gcc gnumake glibc rustfmt openssl pkg-config nixfmt qemu ])
+(with pkgs; [ vim git rustc cargo gcc gnumake glibc rustfmt openssl pkg-config nixfmt qemu ])

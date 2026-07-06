@@ -12,6 +12,7 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    musnix.url = "github:musnix/musnix"; 
   };
 
   outputs = {
@@ -97,18 +98,31 @@
           ./nixos/configurations/configuration-work.nix
         ];
       };
-      nixos-lenovo-laptop = nixpkgs.lib.nixosSystem {
+      nixos-studio-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/hardware-configurations/hardware-configuration-lenovo-laptop.nix
+          # 1. Add the musnix module here:
+          inputs.musnix.nixosModules.musnix
+      
+          # 2. Enable musnix features here:
+          {
+
+            musnix.enable = true;
+            # Optional: explicitly ensure memlock is unlimited if it still acts up
+            security.pam.loginLimits = [
+              { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+            ];
+          }
+          ./nixos/hardware-configurations/hardware-configuration-studio-laptop.nix
           ./nixos/audio.nix
           ./nixos/boot/boot-lenovo-laptop.nix
-          ./nixos/ice.nix
+         # ./nixos/ice.nix
+          ./nixos/display.nix
           ./nixos/hardware.nix
           ./nixos/docker.nix
           ./nixos/locale.nix
           ./nixos/networking.nix
-          ./nixos/optimus.nix
+         # ./nixos/optimus.nix
           ./nixos/steam.nix
           ./nixos/syncthing.nix
           ./nixos/systemd.nix
